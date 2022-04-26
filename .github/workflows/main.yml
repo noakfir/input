@@ -45,7 +45,5 @@ jobs:
         git remote set-url origin https://x-access-token:${{ secrets.PERSONAL_TOKEN }}@github.com/noakfir/output
         git fetch
         cd local_wheels
-        git sparse-checkout set local_wheels
-        git add .
-        git commit -m "Add changes" 
+        git sparse-checkout set local_wheels 
         git push
