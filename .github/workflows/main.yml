@@ -31,19 +31,12 @@ jobs:
       with:
         name: wheel ${{ steps.wheel_version_name.outputs.version }}
         path: dist/insightsprocessor-${{ steps.wheel_version_name.outputs.version }}-py3-none-any.whl
-    - name: checkout to output
-      uses: actions/checkout@v3
-      with:
-        repository: 'noakfir/output'
-        token: ${{ secrets.PERSONAL_TOKEN}}
-        persist-credentials: false 
-        fetch-depth: 0
     - name: commit and push to output 
       run: |
         git config --local user.email "noa.kfir@aquant.io"
         git config --local user.name "noakfir"
-        git remote set-url origin https://x-access-token:${{ secrets.PERSONAL_TOKEN }}@github.com/noakfir/output
+        git remote set-url origin https://x-access-token:${{ secrets.PERSONAL_TOKEN }}@github.com/noakfir/input
         git fetch
-        cd local_wheels
-        git sparse-checkout set local_wheels 
+        git add .
+        git commit -m"try"
         git push --force
