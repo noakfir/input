@@ -1,0 +1,48 @@
+name: wheel
+   
+on:
+     workflow_dispatch:
+jobs:
+      
+  build_and_publish:
+    
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v3
+    - name: Set up Python
+      uses: actions/setup-python@v3
+      with:
+        python-version: '3.x'
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install setuptools wheel 
+    - name: Build 
+      run: |
+        python setup.py sdist bdist_wheel
+    - name: finiding the wheel's version
+      run: |
+        output=$(source/wheel_version.py)
+        ::set-output name=version::$output
+      id: wheel_version_name
+    - name: upload artifact 
+    - uses: actions/upload-artifact@v2
+      with:
+        name: wheel
+        path: dist/insightsprocessor-${{ steps.wheel_version_name.output.version }}-py3-none-any.whl
+    - name: checkout to output
+      uses: actions/checkout@v3
+      with:
+        repository: 'noakfir/output'
+        token: ${{ secrets.PERSONAL_TOKEN}}
+        persist-credentials: false 
+        fetch-depth: 0
+    - name: commit and push to be 
+      run: |
+        git config --local user.email "noa.kfir@aquant.io"
+        git config --local user.name "noakfir"
+        git remote set-url origin https://x-access-token:${{ secrets.PERSONAL_TOKEN }}@github.com/noakfir/output/local_wheels
+        git add .
+        git commit -m "Add changes" --local_wheels
+        git push
