@@ -29,7 +29,7 @@ jobs:
     - name: upload artifact 
       uses: actions/upload-artifact@v2
       with:
-        name: wheel
+        name: wheel ${{ steps.wheel_version_name.outputs.version }}
         path: dist/insightsprocessor-${{ steps.wheel_version_name.outputs.version }}-py3-none-any.whl
     - name: checkout to output
       uses: actions/checkout@v3
