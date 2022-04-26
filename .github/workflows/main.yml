@@ -23,9 +23,9 @@ jobs:
         python setup.py sdist bdist_wheel
     - name: finiding the wheel's version
       run: |
+        output=$(python source/wheel_version.py)
+        echo "::set-output name=version::$output"
       id: wheel_version_name
-          output=$(python source/wheel_version.py)
-          echo "::set-output name=version::$output"
     - name: upload artifact 
       uses: actions/upload-artifact@v2
       with:
