@@ -30,7 +30,7 @@ jobs:
       uses: actions/upload-artifact@v2
       with:
         name: wheel
-        path: dist/insightsprocessor-${{ steps.wheel_version_name.output.version }}-py3-none-any.whl
+        path: dist/insightsprocessor-${{ steps.wheel_version_name.outputs.version }}-py3-none-any.whl
     - name: checkout to output
       uses: actions/checkout@v3
       with:
