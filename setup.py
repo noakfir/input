@@ -3,8 +3,8 @@ setup(
     name='insightsprocessor',
     packages=find_packages(),
     version='1.3.39.1',
-    description='Service Insights Engine',
-    author='Aquant',
+    description='creating a wheel',
+    author='noakfir',
     license='MIT',
     install_requires=['pandas', 'numpy', 'scipy', 'matplotlib', 'sklearn', 'PyYAML'],
 )
