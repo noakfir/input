@@ -38,7 +38,7 @@ jobs:
         token: ${{ secrets.PERSONAL_TOKEN}}
         persist-credentials: false 
         fetch-depth: 0
-    - name: commit and push to be 
+    - name: commit and push to output 
       run: |
         git config --local user.email "noa.kfir@aquant.io"
         git config --local user.name "noakfir"
