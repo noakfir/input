@@ -25,9 +25,9 @@ jobs:
       run: |
         output=$(source/wheel_version.py)
         ::set-output name=version::$output
-      id: wheel_version_name
+        id: wheel_version_name
     - name: upload artifact 
-    - uses: actions/upload-artifact@v2
+      uses: actions/upload-artifact@v2
       with:
         name: wheel
         path: dist/insightsprocessor-${{ steps.wheel_version_name.output.version }}-py3-none-any.whl
