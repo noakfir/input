@@ -43,6 +43,7 @@ jobs:
         git config --local user.email "noa.kfir@aquant.io"
         git config --local user.name "noakfir"
         git remote set-url origin https://x-access-token:${{ secrets.PERSONAL_TOKEN }}@github.com/noakfir/output/local_wheels
+        git branch -u origin/master
         git add .
         git commit -m "Add changes" 
         git push
