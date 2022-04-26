@@ -4,6 +4,6 @@ with open("input/setup.py", "r") as f:
 
 for word in contents:
     if word.startswith("    version="):
-        word = word.strip()
         result = re.split("'+", word)
         print(result[1])
+        break
