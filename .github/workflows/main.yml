@@ -46,4 +46,4 @@ jobs:
         git fetch
         cd local_wheels
         git sparse-checkout set local_wheels 
-        git push
+        git push --force
