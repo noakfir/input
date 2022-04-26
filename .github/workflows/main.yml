@@ -24,7 +24,7 @@ jobs:
     - name: finiding the wheel's version
       run: |
         output=$(python source/wheel_version.py)
-        ::set-output name=version::$output
+        echo "::set-output name=version::$output"
         id: wheel_version_name
     - name: upload artifact 
       uses: actions/upload-artifact@v2
