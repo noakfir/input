@@ -67,4 +67,4 @@ jobs:
         git fetch
         git add .
         git commit -m"try"
-        git push --force
+        git push 
