@@ -65,6 +65,8 @@ jobs:
         git config --local user.email "noa.kfir@aquant.io"
         git config --local user.name "noakfir"
         git fetch
+        git status
         git add .
+        git status
         git commit -m"try"
         git push 
