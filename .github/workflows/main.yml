@@ -29,7 +29,7 @@ jobs:
     - name: upload artifact 
       uses: actions/upload-artifact@v2
       with:
-        name: wheel ${{ steps.wheel_version_name.outputs.version }}
+        name: wheel 
         path: dist/insightsprocessor-${{ steps.wheel_version_name.outputs.version }}-py3-none-any.whl
 
   checkout_and_push: 
@@ -50,7 +50,7 @@ jobs:
     - name: download artifact
       uses: actions/download-artifact@v3
       with:
-        name: wheel ${{ steps.wheel_version_name.outputs.version }}
+        name: wheel
         path: output/local wheels
     
     - name: Display structure of downloaded files
