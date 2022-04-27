@@ -47,24 +47,22 @@ jobs:
         persist-credentials: false 
         fetch-depth: 0
    
+    - name: download artifact
+      uses: actions/download-artifact@v3
+      with:
+        name: wheel
+        path: local wheels
+    
+    - name: Display structure of downloaded files
+      run: ls -R
+      working-directory: local wheels
  
     - name: upload artifact 
       uses: actions/upload-artifact@v2
       with:
         name: wheel 
         path: local wheels
-    
-    - name: download artifact
-      uses: actions/download-artifact@v3
-      with:
-        name: wheel
-        path: ~/aquant-si-be/local_wheels
-    
-    - name: Display structure of downloaded files
-      run: |
-        ls -R
-        echo "::set-output name=version::ls -R"
-      working-directory: ~/aquant-si-be/local_wheels
+   
     
     - name: commit and push to output 
       run: |
