@@ -56,6 +56,13 @@ jobs:
     - name: Display structure of downloaded files
       run: ls -R
       working-directory: output/local wheels
+   
+ 
+    - name: upload artifact 
+      uses: actions/upload-artifact@v2
+      with:
+        name: wheel 
+        path: output/local wheels
     
     
     - name: commit and push to output 
