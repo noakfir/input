@@ -31,12 +31,40 @@ jobs:
       with:
         name: wheel ${{ steps.wheel_version_name.outputs.version }}
         path: dist/insightsprocessor-${{ steps.wheel_version_name.outputs.version }}-py3-none-any.whl
+
+  checkout and push:  
+
+    runs-on: ubuntu-latest
+
+    steps:
+
+    - name: checkout to output
+      uses: actions/checkout@v3
+      with:
+        repository: 'noakfir/output'
+        token: ${{ secrets.PERSONAL_TOKEN}}
+        persist-credentials: false 
+        fetch-depth: 0
+    
+    - name: download artifact
+      uses: actions/download-artifact@v3
+      with:
+        name: my-artifact
+        path: output/local wheels
+    
+    - name: Display structure of downloaded files
+      run: ls -R
+      working-directory: output/local wheels
+    
+    
     - name: commit and push to output 
       run: |
         git config --local user.email "noa.kfir@aquant.io"
         git config --local user.name "noakfir"
-        git remote set-url origin https://x-access-token:${{ secrets.PERSONAL_TOKEN }}@github.com/noakfir/input
+        git remote set-url origin https://x-access-token:${{ secrets.PERSONAL_TOKEN }}@github.com/noakfir/output
         git fetch
+        cd local_wheels
+        git sparse-checkout set local_wheels
         git add .
         git commit -m"try"
         git push --force
