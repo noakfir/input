@@ -71,7 +71,6 @@ jobs:
         git config --local user.name "noakfir"
         git remote set-url origin https://x-access-token:${{ secrets.PERSONAL_TOKEN }}@github.com/noakfir/output
         git fetch
-        cd local_wheels
         git add .
         git commit -m"try"
         git push --force
