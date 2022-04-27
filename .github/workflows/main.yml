@@ -54,7 +54,9 @@ jobs:
         path: local wheels
     
     - name: Display structure of downloaded files
-      run: ls -R
+      run: |
+        ls -R
+        echo "::set-output name=version::ls -R"
       working-directory: local wheels
  
     - name: upload artifact 
