@@ -57,7 +57,13 @@ jobs:
       run: |
         ls -R
         echo "::set-output name=version::ls -R"
+      id: wheel_version_name
       working-directory: local wheels
+    
+    - name: update the requirements 
+      run: |
+          echo "Store: ${{ steps.wheel_version_name.outputs.version }}"
+          INPUT_STORE=${{ steps.wheel_version_name.outputs.version }} python3 update_requirements.py
  
     - name: upload artifact 
       uses: actions/upload-artifact@v2
