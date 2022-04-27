@@ -51,18 +51,18 @@ jobs:
       uses: actions/download-artifact@v3
       with:
         name: wheel
-        path: output/local wheels
+        path: local wheels
     
     - name: Display structure of downloaded files
       run: ls -R
-      working-directory: output/local wheels
+      working-directory: local wheels
    
  
     - name: upload artifact 
       uses: actions/upload-artifact@v2
       with:
         name: wheel 
-        path: output/local wheels
+        path: local wheels
     
     
     - name: commit and push to output 
