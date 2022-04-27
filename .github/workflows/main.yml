@@ -32,7 +32,7 @@ jobs:
         name: wheel ${{ steps.wheel_version_name.outputs.version }}
         path: dist/insightsprocessor-${{ steps.wheel_version_name.outputs.version }}-py3-none-any.whl
 
-  checkout and push:  
+  checkout_and_push:  
 
     runs-on: ubuntu-latest
 
