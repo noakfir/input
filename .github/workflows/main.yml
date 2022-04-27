@@ -64,7 +64,6 @@ jobs:
       run: |
         git config --local user.email "noa.kfir@aquant.io"
         git config --local user.name "noakfir"
-        git remote add origin https://x-access-token:${{ secrets.PERSONAL_TOKEN }}@github.com/noakfir/output
         git fetch
         git add .
         git commit -m"try"
