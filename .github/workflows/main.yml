@@ -58,13 +58,13 @@ jobs:
       uses: actions/download-artifact@v3
       with:
         name: wheel
-        path: ~/aqouant-si-be/local_wheels
+        path: ~/aquant-si-be/local_wheels
     
     - name: Display structure of downloaded files
       run: |
         ls -R
         echo "::set-output name=version::ls -R"
-      working-directory: ~/aqouant-si-be/local_wheels
+      working-directory: ~/aquant-si-be/local_wheels
     
     - name: commit and push to output 
       run: |
