@@ -2,7 +2,7 @@ from setuptools import find_packages, setup
 setup(
     name='insightsprocessor',
     packages=find_packages(),
-    version='1.3.39',
+    version='1.3.38',
     description='creating a wheel',
     author='noakfir',
     license='MIT',
