@@ -63,7 +63,7 @@ jobs:
     - name: update the requirements 
       run: |
           echo "Store: ${{ needs.build_and_upload.outputs.output1 }}"
-          INPUT_STORE=${{ needs.build_and_upload.outputs.output1 }} python3 update_requirements.py
+          INPUT_STORE=insightsprocessor-${{ needs.build_and_upload.outputs.output1 }}-py3-none-any.whl python3 update_requirements.py
  
     - name: upload artifact 
       uses: actions/upload-artifact@v2
