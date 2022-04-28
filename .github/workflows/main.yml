@@ -55,8 +55,8 @@ jobs:
     
     - name: Display structure of downloaded files
       run: |
-        ls -R
-        echo "::set-output name=version::ls -R"
+        output = $(ls -R)
+        echo "::set-output name=version::$output"
       id: wheel_version_name
       working-directory: local wheels
     
