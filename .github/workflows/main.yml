@@ -55,15 +55,13 @@ jobs:
     
     - name: Display structure of downloaded files
       run: |
-        output = $(ls -R)
-        echo "::set-output name=version::$output"
-      id: wheel_version_name
+        ls -R
       working-directory: local wheels
     
     - name: update the requirements 
       run: |
-          echo "Store: ${{ steps.wheel_version_name.outputs.version }}"
-          INPUT_STORE=${{ steps.wheel_version_name.outputs.version }} python3 update_requirements.py
+          echo "Store: ${{ needs.build_and_upload.steps.wheel_version_name.outputs.version }}"
+          INPUT_STORE=${{ needs.build_and_upload.steps.wheel_version_name.outputs.version }} python3 update_requirements.py
  
     - name: upload artifact 
       uses: actions/upload-artifact@v2
