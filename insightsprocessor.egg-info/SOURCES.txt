@@ -1,6 +1,0 @@
-setup.py
-insightsprocessor.egg-info/PKG-INFO
-insightsprocessor.egg-info/SOURCES.txt
-insightsprocessor.egg-info/dependency_links.txt
-insightsprocessor.egg-info/requires.txt
-insightsprocessor.egg-info/top_level.txt
