@@ -1,0 +1,17 @@
+
+name: promote
+
+on:
+  workflow_dispatch:
+
+jobs:
+  promote:
+    runs-on: ubuntu-latest
+    steps:
+        
+      - uses: actions/checkout@v3 
+      - uses: tiltshift/heroku-promote-app@v1
+        with:
+          heroku_api_key: ${{secrets.HEROKU_API_KEY}}
+          heroku_app_name: "stage-noa"
+          heroku_email: "noa.kfir@aquant.io"
